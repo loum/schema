@@ -8,6 +8,8 @@ Contents:
 .. toctree::
    :maxdepth: 2
 
+   modules/schema.rst
+
 Indices and tables
 ==================
 

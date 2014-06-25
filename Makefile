@@ -15,7 +15,7 @@ PYTHONPATH=.
 #
 # Note: for this to work you will need to import the test class into
 # the current namespace via "tests/__init__.py"
-TEST=oct.rest.tests:TestMim
+TEST=oct.schema.tests:TestSchema
 
 sdist:
 	$(PY) setup.py sdist

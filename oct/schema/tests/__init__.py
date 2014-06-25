@@ -1,1 +1,1 @@
-from test_mim import TestMim
+from test_schema import TestSchema

@@ -5,25 +5,26 @@ import oct.schema
 
 class TestSchema(unittest2.TestCase):
 
-    @classmethod
-    def setUpClass(cls):
-        cls._bp = oct.schema.BlogPost()
-
     def test_init(self):
-        """Initialise a :class:`oct.schema.BlogPost` object
+        """Initialise a :class:`oct.schema.Base` object
         """
-        msg = 'Object is not an oct.schema.BlogPost'
-        self.assertIsInstance(self._bp, oct.schema.BlogPost, msg)
+        msg = 'Object is not an oct.schema.Base'
+        b = oct.schema.Base()
+        self.assertIsInstance(b, oct.schema.Base, msg)
 
     def test_mim(self):
         """Test the MongoDB-in-Memory Ming component.
         """
-        x = oct.schema.BlogPoster(dict(title='Title', banana='xxx'))
-        #self.assertDictEqual(x, {'title': 'Title'})
+        user = {'user': {'username': 'lupco',
+                         'display_name': 'Lupco Markovski'}}
+        b = oct.schema.Base(user)
+        b.m.insert()
 
-        x.m.save()
-        print('xxx: %s' % x)
-
-    @classmethod
-    def tearDownClass(cls):
-        del cls._bp
+        # Find and check.
+        search_kwargs = {'user.username': 'lupco'}
+        results = oct.schema.Base.m.find(search_kwargs).first()
+        received = results.get('user')
+        expected = {'display_name': 'Lupco Markovski',
+                    'username': 'lupco'}
+        msg = 'Base document search returned incorrect results'
+        self.assertDictEqual(received, expected, msg)
