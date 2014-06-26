@@ -1,7 +1,7 @@
 from datetime import datetime
 import ming
 from ming.declarative import Document
-from oct.session import SESSION
+from oct_schema.session import SESSION
 
 
 class Base(Document):
