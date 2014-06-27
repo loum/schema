@@ -1,1 +1,2 @@
-from test_models import TestInheritedModel
+from test_base import TestInheritedModel
+from test_objects import TestObjectsModel

@@ -1,10 +1,10 @@
 import unittest2
-
 import ming.odm
-import oct_schema.models
+
+import oct_schema.models.base
 
 
-class DodgeCollection(oct_schema.models.Base):
+class DodgeCollection(oct_schema.models.base.Base):
     """A dodgy collection class that inherits from
     :class:`oct_schema.models.Base`
 
@@ -16,14 +16,13 @@ class DodgeCollection(oct_schema.models.Base):
     class __mongometa__:
         name = 'dodgy_collection'
 
-    _id = ming.odm.FieldProperty(ming.schema.ObjectId)
     text_field = ming.odm.FieldProperty(str)
 
 
 class TestInheritedModel(unittest2.TestCase):
 
     def test_init(self):
-        """Initialise a :class:`oct.models.DodgeCollection` object
+        """Initialise a :class:`oct.models.DodgeCollection` object.
         """
         msg = 'Object is not a DodgeCollection'
         dc = DodgeCollection(text_field='Banana')
