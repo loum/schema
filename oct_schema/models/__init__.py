@@ -10,10 +10,12 @@ class Base(ming.odm.declarative.MappedClass):
     MongoDB.
 
     .. attribute:: created_ts
+
         :mod:`datetime` object that captures the timestamp of when
         the Document was first created
 
     .. attribute:: modified_ts
+
         :mod:`datetime` object that captures the timestamp of when
         the Document was modified
 
@@ -32,6 +34,8 @@ class Base(ming.odm.declarative.MappedClass):
 
     @property
     def session(self):
+        """Session method docstring
+        """
         return oct_schema.session.SESSION
 
     @property
@@ -41,6 +45,5 @@ class Base(ming.odm.declarative.MappedClass):
     @property
     def rollback(self):
         oct_schema.session.SESSION.clear()
-
 
 ming.odm.Mapper.compile_all()
