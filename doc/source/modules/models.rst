@@ -3,19 +3,26 @@
 .. toctree::
     :maxdepth: 2
 
-Base MongoDB Model
-==================
-The :class:`oct_schema.models.Base` class is the generic class that should
-be inherited by all OCT Collections that will interface to MongoDB.
+The OCT MongoDB Model
+=====================
+
+:class:`oct_schema.models.base.Base` Class
+------------------------------------------
+
+The :class:`oct_schema.models.base.Base` class is the generic class that
+should be inherited by all OCT Collections that will interface to MongoDB.
 The default fields include:
 
-* ``created_ts`` - timestamp of when the Document was first created
+.. autoclass:: oct_schema.models.base.Base
 
-* ``modified_ts`` - timestamp of when the document was last modified
+:class:`oct_schema.models.base.Objects` Class
+---------------------------------------------
 
-:class:`oct_schema.models.Base` Class
--------------------------------------
-.. autoclass:: oct_schema.models.Base
+The :class:`oct_schema.models.objects.Objects` is a specialisation
+of the :class:`oct_schema.models.base.Base` class that defines the
+OCT Objects MongoDb Collection
+
+.. autoclass:: oct_schema.models.objects.Objects
 
 Indices and tables
 ------------------
