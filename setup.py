@@ -72,6 +72,6 @@ setup(name='python-oct-schema',
       author_email='lou.markovski@gmail.com',
       url=url,
       packages=['oct_schema',
-                'oct_schema.models'],
+                'oct_schema.model'],
       package_dir={'oct_schema': 'oct_schema'},
       data_files=files)

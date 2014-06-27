@@ -5,8 +5,8 @@ from datetime import datetime
 import oct_schema.session
 
 
-class Base(ming.odm.declarative.MappedClass):
-    """The :class:`oct.schema.Base` class is the generic class that
+class ModelBase(ming.odm.declarative.MappedClass):
+    """The :class:`oct.schema.ModelBase` class is the generic class that
     should be inherited by all OCT Collections that will interface to
     MongoDB.
 

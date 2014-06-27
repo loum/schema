@@ -15,8 +15,8 @@ PYTHONPATH=.
 #
 # Note: for this to work you will need to import the test class into
 # the current namespace via "tests/__init__.py"
-TEST=oct_schema.models.tests:TestInheritedModel \
-	oct_schema.models.tests:TestObjectsModel
+TEST=oct_schema.tests:TestInheritedModel \
+	oct_schema.model.tests:TestObjects
 
 sdist:
 	$(PY) setup.py sdist

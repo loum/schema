@@ -3,10 +3,10 @@ __all__ = [
 ]
 import ming
 
-import oct_schema.models.base
+import oct_schema
 
 
-class Objects(oct_schema.models.base.Base):
+class Objects(oct_schema.ModelBase):
     """Objects schema.
 
     """

@@ -1,12 +1,12 @@
 import unittest2
 import ming.odm
 
-import oct_schema.models.base
+import oct_schema
 
 
-class DodgeCollection(oct_schema.models.base.Base):
+class DodgeCollection(oct_schema.ModelBase):
     """A dodgy collection class that inherits from
-    :class:`oct_schema.models.Base`
+    :class:`oct_schema.BaseModel`
 
     .. attribute:: created_ts
         :mod:`datetime` object that captures the timestamp of when
@@ -22,7 +22,7 @@ class DodgeCollection(oct_schema.models.base.Base):
 class TestInheritedModel(unittest2.TestCase):
 
     def test_init(self):
-        """Initialise a :class:`oct.models.DodgeCollection` object.
+        """Initialise a DodgeCollection object.
         """
         msg = 'Object is not a DodgeCollection'
         dc = DodgeCollection(text_field='Banana')

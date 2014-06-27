@@ -6,23 +6,23 @@
 The OCT MongoDB Model
 =====================
 
-:class:`oct_schema.models.base.Base` Class
-------------------------------------------
+:class:`oct_schema.ModelBase` Class
+-----------------------------------
 
-The :class:`oct_schema.models.base.Base` class is the generic class that
+The :class:`oct_schema.ModelBase` class is the generic class that
 should be inherited by all OCT Collections that will interface to MongoDB.
 The default fields include:
 
-.. autoclass:: oct_schema.models.base.Base
+.. autoclass:: oct_schema.ModelBase
 
-:class:`oct_schema.models.base.Objects` Class
----------------------------------------------
+:class:`oct_schema.model.Objects` Class
+----------------------------------------
 
-The :class:`oct_schema.models.objects.Objects` is a specialisation
-of the :class:`oct_schema.models.base.Base` class that defines the
+The :class:`oct_schema.model.Objects` is a specialisation
+of the :class:`oct_schema.ModelBase` class that defines the
 OCT Objects MongoDb Collection
 
-.. autoclass:: oct_schema.models.objects.Objects
+.. autoclass:: oct_schema.model.Objects
 
 Indices and tables
 ------------------

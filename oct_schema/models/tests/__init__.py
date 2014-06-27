@@ -1,2 +1,0 @@
-from test_base import TestInheritedModel
-from test_objects import TestObjectsModel
