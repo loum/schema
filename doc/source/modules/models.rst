@@ -23,10 +23,3 @@ of the :class:`oct_schema.ModelBase` class that defines the
 OCT Objects MongoDb Collection
 
 .. autoclass:: oct_schema.model.Objects
-
-Indices and tables
-------------------
-
-* :ref:`genindex`
-* :ref:`modindex`
-* :ref:`search`

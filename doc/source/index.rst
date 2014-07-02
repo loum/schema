@@ -15,17 +15,26 @@ settings etc.  :mod:`ming` also supports a migration context that will
 ensure that our interface remains consistent as the Collection schema
 changes.
 
+The following diagram shows where the **MongoDB Document Schema** layer sits
+in the technology stack:
+
+.. figure:: _static/restful_flow.png
+   :alt: OCT RESTful flow
+
+   *OCT RESTful Technology Stack*
+
 Contents:
+---------
 
 .. toctree::
    :maxdepth: 2
 
+   modules/session.rst
    modules/models.rst
 
 Indices and tables
-==================
+-------------------
 
 * :ref:`genindex`
 * :ref:`modindex`
 * :ref:`search`
-

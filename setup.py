@@ -60,11 +60,13 @@ files = find_data_files('doc/build/',
                         '*.css',
                         recursive=True,
                         target_dir='doc/build')
+settings_conf = find_data_files('conf/', 'settings.conf')
 
 url = ('%s://%s:%s/%s' % ('http',
-                          'ip-172-31-2-156.ap-southeast-2.compute.internal',
+                          'confluence.corp.f7',
                           '8090',
                           'display/JDT/Geospatial+DISH+Team'))
+
 setup(name='python-oct-schema',
       version=VERSION,
       description='OCT Schema',
@@ -74,4 +76,5 @@ setup(name='python-oct-schema',
       packages=['oct_schema',
                 'oct_schema.model'],
       package_dir={'oct_schema': 'oct_schema'},
-      data_files=files)
+      package_data={'oct_schema': ['conf/settings.conf']},
+      data_files=files + settings_conf)

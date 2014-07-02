@@ -3,14 +3,9 @@ import ming.odm
 
 import oct_schema
 
-
 class DodgeCollection(oct_schema.ModelBase):
     """A dodgy collection class that inherits from
-    :class:`oct_schema.BaseModel`
-
-    .. attribute:: created_ts
-        :mod:`datetime` object that captures the timestamp of when
-        the Document was first created
+    :class:`oct_schema.model_base.BaseModel`
 
     """
     class __mongometa__:
@@ -18,14 +13,16 @@ class DodgeCollection(oct_schema.ModelBase):
 
     text_field = ming.odm.FieldProperty(str)
 
+ming.odm.Mapper.compile_all()
+
 
 class TestInheritedModel(unittest2.TestCase):
 
     def test_init(self):
         """Initialise a DodgeCollection object.
         """
-        msg = 'Object is not a DodgeCollection'
         dc = DodgeCollection(text_field='Banana')
+        msg = 'Object is not a DodgeCollection'
         self.assertIsInstance(dc, DodgeCollection, msg)
         dc.rollback
 
