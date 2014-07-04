@@ -32,3 +32,12 @@ of the :class:`oct_schema.ModelBase` class that defines the
 OCT Ontology MongoDb Collection.
 
 .. autoclass:: oct_schema.model.Objects
+
+:class:`oct_schema.model.Relations` Class
+-----------------------------------------
+
+The :class:`oct_schema.model.Relations` is a specialisation
+of the :class:`oct_schema.ModelBase` class that defines the
+OCT Relations MongoDb Collection.
+
+.. autoclass:: oct_schema.model.Relations
