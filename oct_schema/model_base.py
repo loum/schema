@@ -28,7 +28,10 @@ class ModelBase(ming.odm.declarative.MappedClass):
         session = s.odm_session
         name = 'base'
 
-    _id = ming.odm.FieldProperty(ming.schema.ObjectId)
+    # TODO: Part of us-99, we need to work out whether _id will
+    # be the native MongoDB UID or the value provided in the data.
+    #_id = ming.odm.FieldProperty(ming.schema.ObjectId)
+    _id = ming.odm.FieldProperty(str)
     created_ts = ming.odm.FieldProperty(datetime,
                                         if_missing=datetime.utcnow())
     modified_ts = ming.odm.FieldProperty(datetime)

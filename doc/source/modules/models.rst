@@ -20,6 +20,15 @@ The default fields include:
 
 The :class:`oct_schema.model.Objects` is a specialisation
 of the :class:`oct_schema.ModelBase` class that defines the
-OCT Objects MongoDb Collection
+OCT Objects MongoDb Collection.
+
+.. autoclass:: oct_schema.model.Objects
+
+:class:`oct_schema.model.Ontology` Class
+----------------------------------------
+
+The :class:`oct_schema.model.Ontology` is a specialisation
+of the :class:`oct_schema.ModelBase` class that defines the
+OCT Ontology MongoDb Collection.
 
 .. autoclass:: oct_schema.model.Objects
