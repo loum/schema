@@ -1,0 +1,112 @@
+[
+	{
+        "_id": "was observed|Kirov CGN|Petr Valikiy (099)",
+        "to":
+        [
+            {
+                "id": "observation|2006-06-10T07:03:00Z|SAMPLEIMAGEID|Kirov CGN|Petr Valikiy (099)"
+            }
+        ]
+	},
+	{
+        "_id": "observation at|severomorsk naval base|berth 2",
+        "to":
+        [
+            {
+                "id": "observation|2006-06-10T07:03:00Z|SAMPLEIMAGEID|Kirov CGN|Petr Valikiy (099)"
+            }
+        ]
+	},
+	{
+        "_id": "has component|Kirov CGN|Petr Valikiy (099)",
+        "to":
+        [
+            {
+                "id": "sensor|Top Pair"
+            },
+            {
+                "id": "sensor|Fly Screen B"
+            }
+        ]
+	},
+	{
+        "_id": "was observed|Kirov CGN|Unidentified",
+        "to":
+        [
+            {"id": "observation|2006-06-10T07:03:00Z|SAMPLEIMAGEID|Kirov CGN|# 001"
+            }
+        ]
+	},
+	{
+        "_id": "evidence for|2014-06-16T00:02:00Z|blogjo",
+        "to":
+        [
+            {
+                "id": "observation|2006-06-10T07:03:00Z|SAMPLEIMAGEID|Kirov CGN|Petr Valikiy (099)"
+            }
+        ]
+	},
+	{
+        "_id": "leader of|group|OBJ UNICORN NETWORK",
+        "to":
+        [
+            {
+                "id": "person|OBJ UNICORN"
+            }
+        ]
+	},
+	{
+        "_id": "member of|group|OBJ UNICORN NETWORK",
+        "to":
+        [
+            {
+                "id": "person|OBJ FLUFFY BUNNY"
+            }
+        ]
+	},
+	{
+        "_id": "residence of|person|OBJ FLUFFY BUNNY",
+        "to":
+        [
+            {
+                "id": "facility|INS COI TK0001"
+            }
+        ]
+	},
+	{
+        "_id": "shipment from|town|Tarin Kot",
+        "to":
+        [
+            {
+                "id": "shipment|2009-06-10T00:00:00Z|EXAMPLESERIAL|opium"
+            }
+        ]
+	},
+	{
+        "_id": "shipment to|admin|Kandahar",
+        "to":
+        [
+            {
+                "id": "shipment|2009-06-10T00:00:00Z|EXAMPLESERIAL|opium"
+            }
+        ]
+	},
+	{
+        "_id": "part of|admin|Uruzgan",
+        "to":
+        [
+            {
+                "id": "feature|town|Tarin Kot"
+            }
+        ]
+	},
+	{
+        "_id": "facilitated|person|OBJ FLUFFY BUNNY",
+        "to":
+        [
+            {
+                "id": "shipment|2009-06-10T00:00:00Z|EXAMPLESERIAL|opium"
+            }
+        ]
+	}
+]

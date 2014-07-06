@@ -1,8 +1,11 @@
 import ming
+import ming.odm
 import ming.odm.declarative
+import json
 from datetime import datetime
 
 import oct_schema
+from oct.utils.log import log
 
 
 class ModelBase(ming.odm.declarative.MappedClass):
@@ -43,5 +46,37 @@ class ModelBase(ming.odm.declarative.MappedClass):
     @property
     def rollback(self):
         self.__mongometa__.session.clear()
+
+    def _batch_loader(self, file):
+        """Helper method that takes a filename and attempts to parse
+        its contents as a JSON object and load into the Collection
+        context.
+
+        .. note::
+
+            The loader falls back to the base :mod:`ming` database
+            ``Manager`` and by-passes the Collection validation.  In short,
+            you can load whatever you like in the collection as this may be
+            useful during the test process.
+
+        Each JSON item in the file represents a Collection Document
+
+        **Args:**
+            *file*: the path to the JSON file that will be loaded
+            into the Collection context
+
+        """
+        log.debug('Loading fixture file: "%s" ...' % file)
+
+        m = ming.odm.mapper(self)
+        with open(file) as f:
+            record_count = 0
+            data = json.load(f)
+
+            for d in data:
+                m.collection.m.collection.insert(d)
+                record_count += 1
+
+        log.debug('Fixture-based records loaded: %d' % record_count)
 
 ming.odm.Mapper.compile_all()

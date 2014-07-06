@@ -18,7 +18,7 @@ PYTHONPATH=.
 TEST=oct_schema.tests:TestInheritedModel \
 	oct_schema.tests:TestSession \
 	oct_schema.model.tests:TestObjects \
-	oct_schema.model.tests:TestOntolgoy \
+	oct_schema.model.tests:TestOntology \
 	oct_schema.model.tests:TestRelations
 
 sdist:

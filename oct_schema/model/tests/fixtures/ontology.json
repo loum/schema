@@ -1,0 +1,554 @@
+[
+    {
+        "_id": "ontology|abstract",
+        "name": "abstract",
+        "gloss": "The parent type from which all types derive"
+    },
+    {
+        "_id": "ontology|entity",
+        "parent_id": "ontology|abstract",
+        "name": "entity",
+        "plural": "entities",
+        "gloss": "Entity is used to represent physical objects",
+        "properties": ["name","description"]
+    },
+    {
+        "_id": "ontology|actor",
+        "parent_id": "ontology|entity",
+        "name": "actor",
+        "plural": "actors",
+        "gloss": "An actor is the central element in the social system; an actor has agency",
+        "properties": ["name","description"]
+    },
+    {
+        "_id": "ontology|person",
+        "parent_id": "ontology|actor",
+        "name": "person",
+        "plural": "people",
+        "gloss": "A human being of interest",
+        "properties": ["name","ethnicity","citizenship","age","birthplace","place of residence","date of birth","date of death","description","eye colour","hair colour","gender","height","weight","marital status","deceased","education","identification number","langauges spoken","title","role","profession","religion","responsibilities","salary","skills","address","aka"],
+        "activities": ["home","working","travelling"],
+        "example": "Jane Doe"
+    },
+    {
+        "_id": "ontology|group",
+        "parent_id": "ontology|actor",
+        "name": "group",
+        "plural": "groups",
+        "gloss": "An cohesive group of persons united by common goals or ideology",
+        "properties": ["name","purpose","size","establishment date","disbandment date","political affiliation","address","aka"],
+        "activities": ["formed","disbanded","meeting"],
+        "example": "jemaah islamiyah"
+    },
+    {
+        "_id": "ontology|military unit",
+        "parent_id": "ontology|actor",
+        "name": "unit",
+        "plural": "units",
+        "gloss": "A group which occupies a position within a military hierarchy",
+        "properties": ["name","echelon","id","purpose","size","establishment date","disbandment date","address","aka"],
+        "activities": ["formed","disbanded","deployed","in base"],
+        "example": "3RAR"
+    },
+    {
+        "_id": "ontology|political entity",
+        "parent_id": "ontology|actor",
+        "name": "political entity",
+        "plural": "political entities",
+        "gloss": "A non-geographic actor like a nation or state",
+        "properties": ["name","admin level","political entity type","aka"],
+        "activities": ["formed","disbanded"],
+        "example": "Australia"
+    },
+    {
+        "_id": "ontology|place",
+        "parent_id": "ontology|entity",
+        "name": "place",
+        "plural": "places",
+        "gloss": "A geographic location",
+        "properties": ["name","latitude","longitude","address"]
+    },
+    {
+        "_id": "ontology|feature",
+        "parent_id": "ontology|place",
+        "name": "feature",
+        "plural": "features",
+        "gloss": "A named geographic feature",
+        "properties": ["name","latitude","longitude","height","altitude","depth","length","width","radius","azimuth","mgrs","utm","country","address","type","population","floors","construction type","colour"],
+        "example": "Yarra River"
+    },
+    {
+        "_id": "ontology|facility",
+        "parent_id": "ontology|place",
+        "name": "facility",
+        "plural": "facilities",
+        "gloss": "A geographic place defined by a purpose",
+        "properties": ["name","latitude","longitude","height","altitude","depth","length","width","radius","azimuth","mgrs","utm","country","be number","category code","osuffix","record status","facility status","facility description","responsible producer","functional production area"],
+        "activities": ["built","destroyed","damaged","rebuilt","expanded"],
+        "example": "Russell Offices"
+    },
+    {
+        "_id": "ontology|equipment type",
+        "parent_id": "ontology|entity",
+        "name": "equipment type",
+        "plural": "equipment types",
+        "gloss": "A movable, manufactured non-sentient thing",
+        "properties": ["name","description"]
+    },
+    {
+        "_id": "ontology|vehicle",
+        "parent_id": "ontology|equipment type",
+        "name": "vehicle",
+        "plural": "vehicles",
+        "gloss": "Equipment whose purpose is to move itself or other things",
+        "properties": ["name","description"]
+    },
+    {
+        "_id": "ontology|ship",
+        "parent_id": "ontology|vehicle",
+        "name": "ship",
+        "plural": "ships",
+        "gloss": "A vehicle for travel on water",
+        "properties": ["name","equipment code","description","number in service","displacement (full load)","draft (full load)","beam (max)","length","speed (max)","speed (cruising)","speed (economical)","complement"],
+        "activities": ["in port (home)","in port (visiting)","underway","in maintenance","return to port","at anchor","parked","helicopter operations","ASW operations","amphibious operations","local operations","sea trials","stores loading/unloading","weapons handling","training","avoiding weather","interfleet transit","gone"],
+        "example": "ANZAC Class FFG"
+    },
+    {
+    "_id": "ontology|submarine",
+        "parent_id": "ontology|vehicle",
+        "name": "submarine",
+        "plural": "submarines",
+        "gloss": "A vehicle for travel under water",
+        "properties": ["name","equipment code","description","displacement (submerged)","displacement (suface)","beam (max)","length","speed (submerged max)","speed (submerged cruising)","speed (submerged economical)","speed (submerged snorting)","speed (surface max)","speed (surface cruising)","speed (surface economical)","operating depth","design collapse depth","laid down date","commissioned date","refit date","complement","number in service","number planned","number under construction"],
+        "activities": ["in port (home)","in port (visiting)","underway","in maintenance","return to port","at anchor","parked","ASW operations","local operations","sea trials","stores loading/unloading","weapons handling","training","avoiding weather","interfleet transit","destroyed","damaged","gone"],
+        "example": "Collins Class SSK"
+    },
+    {
+        "_id": "ontology|aircraft or helicopter",
+        "parent_id": "ontology|vehicle",
+        "name": "aircraft or helicopter",
+        "plural": "aircraft or helicopters",
+        "gloss": "A vehicle for travel by air",
+        "properties": ["name","equipment code","description","primary role","secondary role","fuselage length","fuselage width","fuselage depth","operational weight (empty)","take off weight (max)","payload (max)","internal fuel (max)","external fuel (max)","take off distance","landing distance","service ceiling","climb rate (max)","manufacturer","initial operating caqpability date","manufacturers designation","length (with rotors turning)","main rotor blades","main rotor diameter","crew (normal)","pax (max)","engines","engine model","loiter speed","terminal speed","operating range","operating endurance","wing span","wing configuration","tail configuration","fuselage type"],
+        "activities": ["local operations","training","ground attack","air attack","weapons handling","taxiing","in maintenance","fueling","ready","destroyed","damaged","gone"],
+        "example": "F/A-18C Hornet"
+    },
+    {
+        "_id": "ontology|satellite",
+        "parent_id": "ontology|vehicle",
+        "name": "satellite",
+        "plural": "satellites",
+        "gloss": "A vehicle designed to orbit the earth",
+        "properties": ["name","equipment code","description","consortium owner","domestic owner","program affiliation","network designator","network description","orbit type","apogee height","perigee height","operating altitude","orbital period","inclinition","orbital description"],
+        "activities": ["launched","re-entry","destroyed","damaged","gone"],
+        "example": "Intelsat-806"
+    },
+    {
+        "_id": "ontology|space launch",
+        "parent_id": "ontology|vehicle",
+        "name": "space launch",
+        "plural": "space launches",
+        "gloss": "A vehicle designed to launch things, such as satellites, into orbit",
+        "properties": ["name","equipment code","description","stages","vehicle configuration","erector description","nominal orbit type","nominal inclination","length","first launch date","first launch success indicator","first operational payload date","first multiple payload date","first manned payload date","first retrograde launch date","first commercial launch date","launch centre name","demonstrated earth orbit payload","maximum assessed earth orbit payload"],
+        "activities": ["launching","launch preparation underway","under construction","in maintenance","training","destroyed","damaged","gone"],
+        "example": "Long March-2F SLV"
+    },
+    {
+        "_id": "ontology|ground vehicle",
+        "parent_id": "ontology|vehicle",
+        "name": "ground vehicle",
+        "plural": "ground vehicles",
+        "gloss": "A vehicle for travel over land",
+        "properties": ["name","equipment code","description","primary role","secondary role","combat weight","empty weight","overall length","hull length","overall height","height to top of hull","height to top of turret","overall width","ground clearance","crew size","pax (max)","platform survivability enhacements","main weapon type","secondary weapons","speed (on road)","speed (off road)","speed (in water)","wading depth","load capacity","wheel base","angle of approach","angle of departure","track"],
+        "activities": ["parked","in maintenance","underway","training","combat operations","being transported","destroyed","damaged","gone"],
+        "example": "M1A1 Abrams MBT"
+    },
+    {
+        "_id": "ontology|gun or launcher",
+        "parent_id": "ontology|vehicle",
+        "name": "gun or launcher",
+        "plural": "guns or launchers",
+        "gloss": "A weapon system designed to propel, or serve as the platform for the launch of, a munition",
+        "properties": ["name","equipment code","description","primary role","secondary role","combat weight","empty weight","overall length","hull length","overall height","height to top of hull","height to top of turret","overall width","ground clearance","crew size","pax (max)","platform survivability enhacements","main weapon type","secondary weapons","speed (on road)","speed (off road)","speed (in water)","wading depth","load capacity","wheel base","angle of approach","angle of departure","track","calibre","method of operation","method of fire","magazine capacity","rifling","rate of fire (nominal)","rate of fire (max)","effective range","maximum range","ammunition type","launcher patform","launch interval","firing preparation time"],
+        "activities": ["parked","in maintenance","underway","training","combat operations","being transported","destroyed","damaged","gone"],
+        "example": "SA-15A TLAR"
+    },
+    {
+        "_id": "ontology|munition",
+        "parent_id": "ontology|equipment type",
+        "name": "munition",
+        "plural": "munitions",
+        "gloss": "The component of the weapon system that strikes a target",
+        "properties": ["name","equipment code","description","length","width","weight","identifying features","stabilisation methods","guidance method","height of release","speed of release","effective range","maximum range","launch environment","primary role","secondary role","payload","flight time (max)","guidance (mid course)","guidance (terminal)","sensor type","propellant","warhead type"],
+        "activities": ["in storage","being loaded/unloaded","decommissioned","firing/detonating","being transported","destroyed","damaged","gone"],
+        "example": "9M330 GUANTLET Missile"
+    },
+    {
+        "_id": "ontology|electronics",
+        "parent_id": "ontology|equipment type",
+        "name": "electronics",
+        "plural": "electronics",
+        "gloss": "...",
+        "properties": ["name","equipment code","description","ELNOT","COTS/GOTS","data exchange format","tecnology","vulnerabilities","war mode indicator"],
+        "activities": ["stowed","deployed","active","being transported","destroyed","damaged","gone"],
+        "example": "AN/PRC-77 Radio"
+    },
+    {
+        "_id": "ontology|sensor",
+        "parent_id": "ontology|equipment type",
+        "name": "sensor",
+        "plural": "sensors",
+        "gloss": "Equipment whose purpose is to detect a phenomena or other thing",
+        "properties": ["name","equipment code","description","primary role","secondary role","technology"],
+        "activities": ["stowed","deployed","active","being transported","destroyed","damaged","gone"],
+        "example": "PSO-1 Optical Sight"
+    },
+    {
+        "_id": "ontology|support equipment",
+        "parent_id": "ontology|equipment type",
+        "name": "support equipment",
+        "plural": "support equipment",
+        "gloss": "Equipment whose primary role is the support to an activity",
+        "properties": ["name","equipment code","description","primary role","secondary role","technology","detector type","shelf life","construction method","construction materials","length","width","crew size","engine type","effective range","range (on road)","range (off road)","range (in water)","speed (on road)","speed (off road)","speed (in water)","wading depth","load capacity","wheel base","angle of approach","angle of departure","track","pax (max)"],
+        "activities": ["parked","stowed","deployed","in maintenance","underway","training","combat operations","being transported","destroyed","damaged","gone"],
+        "example": "M728 CEV"
+    },
+    {
+        "_id": "ontology|equipment",
+        "parent_id": "ontology|entity",
+        "name": "equipment",
+        "plural": "items of equipment",
+        "gloss": "The instance of the equipment type",
+        "properties": ["name","equipment code","description","unique identifier","construction start date","operational date","refit date"],
+        "example": "HMAS Ballarat 155 (an instance of ANZAC FFGHM)"
+        },
+    {
+        "_id": "ontology|equipment collection",
+        "parent_id": "ontology|equipment",
+        "name": "equipment collection",
+        "plural": "equipment collections",
+        "gloss": "Multiple instances of the same equipment type",
+        "properties": ["name","equipment code","description","quantity","quantity unit"],
+        "example": "3 x F-16"
+    },
+    {
+        "_id": "ontology|substance type",
+        "parent_id": "ontology|entity",
+        "name": "substance type",
+        "plural": "substance types",
+        "gloss": "Non-manufactured, though possibly harvested, processed, synthesised or refined, material",
+        "properties": ["name","type","chemical formula","physical state (room temperature)","hazards","storage method","production method"],
+        "activities": ["in storage","processed","disposed of","gathered"],
+        "example": "Uranium Hexaflouride"
+    },
+    {
+        "_id": "ontology|substance",
+        "parent_id": "ontology|entity",
+        "name": "substance",
+        "plural": "substances",
+        "gloss": "The instance of a substance type",
+        "properties": ["name","type","quantity","quantity units"],
+        "example": "2 canisters of UF6"
+    },
+    {
+        "_id": "ontology|account",
+        "parent_id": "ontology|entity",
+        "name": "account",
+        "plural": "accounts",
+        "gloss": "A proxy representing an actor for the purposes of identification and transactions"
+    },
+    {
+        "_id": "ontology|email account",
+        "parent_id": "ontology|account",
+        "name": "email account",
+        "plural": "email accounts",
+        "gloss": "An email account",
+        "properties": ["name","email address","password","account opened date","account closed date","account issuing authority","purpose"],
+        "activities": ["opened","closed","accessed","sent","received"],
+        "example": "example@madeup.com"
+    },
+    {
+        "_id": "ontology|financial account",
+        "parent_id": "ontology|account",
+        "name": "financial account",
+        "plural": "financial accounts",
+        "gloss": "An account for the purpose of storing or transferring money",
+        "properties": ["name","account number","ballance","account opened date","account closed date","account issuing authority","purpose"],
+        "activities": ["opened","closed","accessed","withdrawal","deposit"],
+        "example": "Online trading account of Jane Doe"
+    },
+    {
+        "_id": "ontology|online account",
+        "parent_id": "ontology|account",
+        "name": "online account",
+        "plural": "online accounts",
+        "gloss": "An account for the purposes of identification or access to an online service",
+        "properties": ["name","username","password","account opened date","account closed date","account issuing authority","purpose"],
+        "activities": ["opened","closed","accessed","posted"],
+        "example": "Facebook account of Jane Doe"
+    },
+    {
+        "_id": "ontology|telecommunications account",
+        "parent_id": "ontology|account",
+        "name": "telecommunications account",
+        "plural": "telecommunications accounts",
+        "gloss": "An account for the purposes of accessing a telecommunications service",
+        "properties": ["name","service dialling number","account opened date","account closed date","account issuing authority","purpose"],
+        "activities": ["opened","closed","used","sent","received"],
+        "example": "Mobile account of Jane Doe"
+    },
+    {
+        "_id": "ontology|process",
+        "parent_id": "ontology|abstract",
+        "name": "process",
+        "plural": "processes",
+        "gloss": "A general process by which a thing is made or transformed",
+        "properties": ["name","description","steps","process owner","process creator","process users"],
+        "example": "Aluminium smelting"
+    },
+    {
+        "_id": "ontology|capability",
+        "parent_id": "ontology|abstract",
+        "name": "capability",
+        "plural": "capabilities",
+        "gloss": "The capacity to do something",
+        "properties": ["name","purpose","information credibility","maturity","quantity","skill"],
+        "example": "Nuclear weapons production"
+    },
+    {
+        "_id": "ontology|assessment",
+        "parent_id": "ontology|abstract",
+        "name": "assessment",
+        "plural": "assessments",
+        "gloss": "An assertion of the meaning of a set of evidence",
+        "properties": ["assessment","author","publish date","information credibility"],
+        "example": "The observed activity is likely preparations for an inspection by senior officers planned for 01JAN15"
+    },
+    {
+        "_id": "ontology|event",
+        "parent_id": "ontology|abstract",
+        "name": "event",
+        "plural": "events",
+        "gloss": "Something that happens",
+        "properties": ["title","occurred (start)","occurred (end)","description"]
+    },
+    {
+        "_id": "ontology|observation",
+        "parent_id": "ontology|event",
+        "name": "observation",
+        "plural": "observations",
+        "gloss": "Seeing the activity of an entity at a place and time",
+        "properties": ["title","occurred (start)","occurred (end)","description","activity","observation by","observation at","latitude","longitude","where"],
+        "example": "HMAS BALARAT 155 in port @ Garden Island WA @ 0700 01JAN12"
+    },
+    {
+        "_id": "ontology|attack",
+        "parent_id": "ontology|event",
+        "name": "attack",
+        "plural": "attacks",
+        "gloss": "An attack, or attempted attack, on an entity by another entity",
+        "properties": ["title","occurred (start)","occurred (end)","description","attack type","attack on","attack by","BDA","weapon types","attack effect","resources","purpose","latitude","longitude","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|intimidation",
+        "parent_id": "ontology|attack",
+        "name": "intimidation",
+        "plural": "instances of intimidation",
+        "gloss": "Implicit or explicit threats of violence",
+        "properties": ["title","occurred (start)","occurred (end)","description","intimidation type","intimidation of","intimidation by","weapon types","intimidation effect","resources","purpose","latitude","longitude","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|operation",
+        "parent_id": "ontology|event",
+        "name": "operation",
+        "plural": "operations",
+        "gloss": "The coordinated actions of military or para-military units",
+        "properties": ["title","occurred (start)","occurred (end)","description","participants","purpose","operation effect","operation area","resource","latitude","longitude","where"]
+    },
+    {
+        "_id": "ontology|deployment",
+        "parent_id": "ontology|operation",
+        "name": "deployment",
+        "plural": "deployments",
+        "gloss": "The movement of a military or para-military unit to an operational area",
+        "properties": ["title","occurred (start)","occurred (end)","description","deployed units","purpose","deployment effect","deployment area","resource","latitude","longitude","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|exercise",
+        "parent_id": "ontology|operation",
+        "name": "exercise",
+        "plural": "exercises",
+        "gloss": "The rehearsal of an operation by military or para-military units",
+        "properties": ["title","occurred (start)","occurred (end)","description","exercise units","purpose","exercise effect","exercise area","resource","latitude","longitude","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|raid or assault",
+        "parent_id": "ontology|operation",
+        "name": "raid",
+        "plural": "raids",
+        "gloss": "A type of military or para-military operation with the intent to capture or kill an enemy",
+        "properties": ["title","occurred (start)","occurred (end)","description","friendly units","target","raid effect","raid area","resource","latitude","longitude","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|movement",
+        "parent_id": "ontology|event",
+        "name": "movement",
+        "plural": "movements",
+        "gloss": "The movement of entities between places",
+        "properties": ["title","occurred (start)","occurred (end)","description","transportation type","speed","route","from","to","vehicle name","purpose","resource","bearing","latitude","longitude","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|travel",
+        "parent_id": "ontology|movement",
+        "name": "travel",
+        "plural": "instances of travel",
+        "gloss": "The movement of an actor",
+        "properties": ["title","occurred (start)","occurred (end)","description","transportation type","speed","route","from","to","vehicle name","purpose","resource","bearing","passengers","fare","duration","latitude","longitude","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|shipment",
+        "parent_id": "ontology|movement",
+        "name": "shipment",
+        "plural": "shipments",
+        "gloss": "The movement of equipment or substances",
+        "properties": ["title","occurred (start)","occurred (end)","description","transportation type","speed","route","from","to","vehicle name","purpose","resource","bearing","goods","value","latitude","longitude","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|transaction",
+        "parent_id": "ontology|movement",
+        "name": "transaction",
+        "plural": "transactions",
+        "gloss": "The movement of money or valuable goods",
+        "properties": ["title","occurred (start)","occurred (end)","description","transaction type","from","to","purpose","resource","goods","value","latitude","longitude","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|effort",
+        "parent_id": "ontology|event",
+        "name": "effort",
+        "plural": "efforts",
+        "gloss": "Encompassing activities linked by a common goal",
+        "properties": ["title","occurred (start)","occurred (end)","description","effort type","resource","budget","purpose","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|project",
+        "parent_id": "ontology|effort",
+        "name": "project",
+        "plural": "project",
+        "gloss": "The process of delivering an extant capability",
+        "properties": ["title","occurred (start)","occurred (end)","description","resource","budget","purpose","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|research and development",
+        "parent_id": "ontology|effort",
+        "name": "research",
+        "plural": "research efforts",
+        "gloss": "The process of developing a non-extant capability",
+        "properties": ["title","occurred (start)","occurred (end)","description","resource","budget","purpose","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|planning",
+        "parent_id": "ontology|effort",
+        "name": "planning",
+        "plural": "planning efforts",
+        "gloss": "The process of planning for a future event",
+        "properties": ["title","occurred (start)","occurred (end)","description","resource","budget","purpose","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|funding",
+        "parent_id": "ontology|effort",
+        "name": "funding",
+        "plural": "funding efforts",
+        "gloss": "The process of organising or raising funds",
+        "properties": ["title","occurred (start)","occurred (end)","description","sources","funds goal","funds raised","purpose","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|communication",
+        "parent_id": "ontology|event",
+        "name": "communication",
+        "plural": "communications",
+        "gloss": "An exchange of information between entities",
+        "example": ""
+    },
+    {
+        "_id": "ontology|connection",
+        "parent_id": "ontology|communication",
+        "name": "connection",
+        "plural": "connection",
+        "gloss": "Machine to machine link",
+        "properties": ["title","occurred (start)","occurred (end)","from","to","protocol"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|negotiation",
+        "parent_id": "ontology|communication",
+        "name": "negotiation",
+        "plural": "negotiations",
+        "gloss": "Communication between actors leading towards a transaction or event",
+        "properties": ["title","occurred (start)","occurred (end)","content","parties","purpose","effect","goods","value","latitude","longitude","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|meeting",
+        "parent_id": "ontology|communication",
+        "name": "meeting",
+        "plural": "meetings",
+        "gloss": "Co-location of actors",
+        "properties": ["title","occurred (start)","occurred (end)","content","parties","equipment","purpose","effect","duration","latitude","longitude","where"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|written communication",
+        "parent_id": "ontology|communication",
+        "name": "writing",
+        "plural": "writings",
+        "gloss": "Any communication by means of writing or typing information",
+        "properties": ["title","occurred (start)","occurred (end)","content","from","to","equipment","purpose","effect","language","domain","ip address","url","username","pasword","duration","format","file size"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|spoken communication",
+        "parent_id": "ontology|communication",
+        "name": "speaking",
+        "plural": "speaking",
+        "gloss": "Any communication by means of the spoken word not covered under meetings or negotiations",
+        "properties": ["title","occurred (start)","occurred (end)","content","from","to","equipment","purpose","effect","language","duration"],
+        "example": ""
+    },
+    {
+        "_id": "ontology|source",
+        "parent_id": "ontology|abstract",
+        "name": "source",
+        "plural": "sources",
+        "gloss": "The source from which any intelligence has been derived"
+    },
+    {
+        "_id": "ontology|image",
+        "parent_id": "ontology|source",
+        "name": "image",
+        "plural": "images",
+        "gloss": "A coherent GEOINT primary-source captured from the electronic spectrum",
+        "properties": ["imp","time over target","sensor","classification"]
+    },
+    {
+        "_id": "ontology|document",
+        "parent_id": "ontology|source",
+        "name": "document",
+        "plural": "documents",
+        "gloss": "A text-based, generally secondary, source; collateral",
+        "properties": ["document serial","publish date","document source","classification"]
+    }
+]

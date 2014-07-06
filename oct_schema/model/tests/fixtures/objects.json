@@ -1,0 +1,217 @@
+[
+	{
+        "_id": "facility|severomorsk naval base",
+        "type_id": "ontology|facility",
+        "name": "Severomorsk Naval Base",
+        "latitude": 69.0789,
+        "longitude": 33.4217,
+        "country": "Russian Federation",
+        "type": "primary naval base",
+        "be_number": "00000-0000",
+        "category_code": "00000",
+        "osuffix": "AA000",
+        "record_status": "A",
+        "facility_status": "Operational",
+        "facility_description": "Severomorsk Naval Base consists of several berthing areas, as well as barracks, support and HQ areas",
+        "entities":
+        [
+            {
+                "_id": "severomorsk naval base|berth 2",
+                "type_id": "ontology|facility",
+                "latitude": 69.0789,
+                "longitude": 33.4217,
+                "name": "berth 2",
+                "facility_description": "..."
+			}
+		]
+	},
+	{
+        "_id": "ship|Kirov CGN",
+        "type_id": "ontology|ship",
+        "name": "Kirov Class",
+        "equipment_code": "CDGKI",
+        "description": "The Kirov Class is a nuclear-powered Russian surface combatant",
+        "number_in_service": 2,
+        "displacement_full_load": 24690,
+        "beam_max": 28.5,
+        "length": 252,
+        "speed_max": 30,
+        "entities":
+        [
+			{
+                "_id": "Kirov CGN|Petr Valikiy (099)",
+                "type_id": "ontology|ship",
+                "unique_identifier": "099",
+                "name": "Petr Valikiy"
+			},
+			{
+                "_id": "Kirov CGN|Admiral Nakhimov (080)",
+                "type_id": "ontology|ship",
+                "unique_identifier": "080",
+                "name": "Admiral Nakhimov"
+			}
+		]
+	},
+	{
+        "_id": "sensor|Top Pair", 
+        "type_id": "ontology|sensor",
+        "name": "Top Pair",
+        "equipment_code": "XANCI",
+        "technology": "radar",
+        "primary_role": "naval"
+	},
+	{
+        "_id": "sensor|Fly Screen B",
+        "type_id": "ontology|sensor",
+        "name": "Fly Screen B",
+        "equipment_code": "XGNCD",
+        "technology": "radar",
+        "primary_role": "naval"
+	},
+	{
+        "_id": "observation|2006-06-10T07:03:00Z|SAMPLEIMAGEID|Kirov CGN|Petr Valikiy (099)", 
+        "type_id": "ontology|observation",
+        "source_id": "image|2006-06-10T07:03:00Z|SAMPLEIMAGEID",  
+        "occurred_start": "2006-06-10T07:03:00Z",
+        "observation_by":  "user0001", 
+        "observation_at":  "2014-06-10T02:00:00Z",
+        "activity":  "in port",
+        "description": "The Top Pair radar was observed removed from its mount position",
+        "latitude": 0,
+        "longitude": 0
+	},
+	{
+        "_id": "observation|2006-06-10T07:03:00Z|SAMPLEIMAGEID|Kirov CGN|# 001",
+        "type_id": "ontology|observation",
+        "source_id": "image|2006-06-10T07:03:00Z|SAMPLEIMAGEID",
+        "occurred_start": "2006-06-10T07:03:00Z",
+        "observation_by":  "user0001",
+        "observation_at":  "2014-06-10T02:00:00Z",
+        "activity":  "in port",
+        "latitude": 0,
+        "longitude": 0
+	},
+	{
+        "_id": "image|2006-06-10T07:03:00Z|SAMPLEIMAGEID",
+        "type_id": "ontology|image",
+        "imp":  "10JUN06SAMPLEIMAGEID",
+        "time_over_target":  "2006-06-10T07:03:00Z",
+        "sensor":  "UNCLASSIFIED EO",
+        "classification": "UNCLASSIFIED"
+	},
+	{
+        "_id": "assessment|2014-06-16T00:02:00Z|blogjo",
+        "type_id": "ontology|assessment",
+        "user":  "blogjo", 
+        "assessment_at":  "2014-06-16T00:02:00Z",
+        "assessment":  "The absence of the Top Pair radar as observed on 10JUN2006 indicates that the vessel is undergoing long-term maintenance and is not operational"
+	},
+	{
+        "_id": "facility|INS COI TK0001", 
+        "type_id": "ontology|facility",
+        "name": "INS COI TK0001",
+        "latitude": 32.4387,
+        "longitude": 65.7925,
+        "country": "Afghanistan",
+        "type": "Insurgent-related compound of interest",
+        "facility_description": "OBJ FLUFFY BUNNY residence",
+        "source_id": "document|2013-10-07T00:00:00Z|SAMPLEDOCUMENTID"
+	},
+	{
+        "_id": "person|OBJ FLUFFY BUNNY",
+        "type_id": "ontology|person",
+        "name": "John Doe",
+        "description": "Chief enforcer for the OBJ UNICORN Network",
+        "role":  "insurgent commander"
+	},
+	{
+        "_id": "person|OBJ UNICORN",
+        "type_id": "ontology|person",
+        "name": "Unknown",
+        "aka": ["the bearded one","the old man"],
+        "description": "Leader of an insurgent network facilitating opium shipment to Kandahar",
+        "role":  "insurgent commander"
+	},
+	{
+        "_id": "group|OBJ UNICORN NETWORK",
+        "type_id": "ontology|group",
+        "name": "OBJ UNICORN NETWORK",
+        "aka": 
+        [
+            "the opium merchants"
+        ],
+        "description": "A loose network of tribally-affiliated entities under the command/influence of OBJ UNICORN",
+        "purpose": "insurgent facilitation"
+	},
+	{
+        "_id": "shipment|2009-06-10T00:00:00Z|EXAMPLESERIAL|opium",
+        "type_id": "ontology|shipment",
+        "title": "Opium shipment to Kandahar",
+        "occurred_start": "2013-10-02T00:00:00Z",
+        "transportation_type": "donkey",
+        "resource": "20 bags of raw opium"
+	},
+	{
+        "_id": "document|2013-10-07T00:00:00Z|EXAMPLESERIAL",
+        "type_id": "ontology|document",
+        "document_serial": "EXAMPLESERIAL",
+        "publish_date": "2013-10-07T00:00:00Z",
+        "document_source": "Open Source",
+        "classification": "UNCLASSIFIED"
+	},
+	{
+        "_id": "feature|town|Tarin Kot", 
+        "type_id": "ontology|feature",
+        "name": "tarin kot",
+        "aka": ["tarin kowt","tereen kowt"],
+        "type": "PPL",
+        "latitude": 32.6266,
+        "longitude": 65.8737
+	},
+	{
+        "_id": "feature|admin|province|Kandahar",
+        "type_id": "ontology|feature",
+        "name": "Kandahar",
+        "type": "ADM2"
+	},
+	{
+        "_id": "feature|admin|province|Uruzgan",
+        "type_id": "ontology|feature",
+        "name": "Uruzgan",
+        "aka": ["Oruzgan"],
+        "type": "ADM2"
+	},
+	{
+        "_id": "attack|2011-02-11T06:00:00Z|EXAMPLESERIAL|red on green", 
+        "type_id": "ontology|attack",
+        "source_id": "document|2013-10-07T00:00:00Z|EXAMPLESERIAL",
+        "attack_type":  "small arms|direct fire|red on green",
+        "title": "INS attack ANP patrol",
+        "attack_by":  "Taliban INS", 
+        "attack_on":  "ANP patrol",
+        "BDA":  ["02 x ANP KIA","01 x ANP KIA","02 x ANP INJ"],
+        "description": "ANP patrol ambushed near bridge; engaged with small arms fire from elevated positions, followed by several RPGs; enemy withdrew after taking casualties",
+        "weapon_types": ["AK-47","PKM","RPG"],
+        "occured_start": "2011-02-11T06:00:00Z",
+        "occured_end": "2011-02-11T07:00:00Z",
+        "latitude": 32.6275,
+        "longitude": 65.8340
+	},
+	{
+        "_id": "meeting|2011-02-10T05:00:00Z|EXAMPLESERIAL|ins",
+        "type_id": "ontology|meeting",
+        "source_id": "document|2013-10-07T00:00:00Z|EXAMPLESERIAL",
+        "title": "OBJ FLUFFY BUNNY meets OBJ UNICORN",
+        "occured_start": "2011-02-10T05:00:00Z",
+        "parties":
+        [
+		    {
+                "id": "person|OBJ UNICORN"
+            },
+		    {
+                "id": "person|OBJ FLUFFY BUNNY"
+            }
+		],
+        "where": "feature|admin|province|Kandahar"
+	}
+]
