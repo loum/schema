@@ -11,6 +11,7 @@ class TestRelations(unittest2.TestCase):
 
     @classmethod
     def setUpClass(cls):
+        cls.maxDiff = None
         fixtures_dir = os.path.join('oct_schema',
                                     'model',
                                     'tests',
@@ -79,11 +80,18 @@ class TestRelations(unittest2.TestCase):
         """Test the Relations context search method.
         """
         set_log_level('INFO')
-        received = oct_schema.model.Relations().search(token='Kirov')
+        results = oct_schema.model.Relations.search(token='Kirov',
+                                                    regex=True)
+        dict_documents = [d.to_dict() for d in results]
+        received = []
+        for i in dict_documents:
+            for k, v in i.iteritems():
+                if k == '_id':
+                    received.append({k: v})
         set_log_level('DEBUG')
-        expected = [u'has component|Kirov CGN|Petr Valikiy (099)',
-                    u'was observed|Kirov CGN|Petr Valikiy (099)',
-                    u'was observed|Kirov CGN|Unidentified']
+        expected = [{'_id': u'has component|Kirov CGN|Petr Valikiy (099)'},
+                    {'_id': u'was observed|Kirov CGN|Petr Valikiy (099)'},
+                    {'_id': u'was observed|Kirov CGN|Unidentified'}]
         msg = 'Kirov wildcard search against _id error'
         self.assertListEqual(sorted(received), sorted(expected), msg)
 
@@ -93,5 +101,15 @@ class TestRelations(unittest2.TestCase):
         token = 'Kirov CGN'
 
         set_log_level('INFO')
-        received =  oct_schema.model.Relations().observation_search(token)
+        results = oct_schema.model.Relations.observation_search(token)
+        dict_documents = [d.to_dict() for d in results]
+        received = []
+        for i in dict_documents:
+            for k, v in i.iteritems():
+                if k == 'description':
+                    received.append({k: v})
         set_log_level('DEBUG')
+        expected = [{'description': u'The Top Pair radar was observed removed from its mount position'},
+                    {'description': ''}]
+        msg = 'Observation document to_dict translation error'
+        self.assertListEqual(sorted(received), sorted(expected), msg)

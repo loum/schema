@@ -17,7 +17,8 @@ class Relations(oct_schema.ModelBase):
 
     to = FieldProperty([dict(id=str, if_missing=None)])
 
-    def observation_search(self, token):
+    @classmethod
+    def observation_search(cls, token):
         """Wrapper around a Relations Collection context that filters
         out ``was observed`` elements from the ``_id`` key with a
         *token* regular expression.
@@ -28,13 +29,13 @@ class Relations(oct_schema.ModelBase):
         # These are the Relations Collection results.
         # According to the Document map, the results each have an
         # Objects Document.
-        results = self.search(token=obs_token, regex=True)
+        results = cls.search(token=obs_token, regex=True)
 
         if results is not None:
             objects = []
             for i in results:
                 for j in i.to:
-                    objects_cursor = oct_schema.model.Objects().search(j.id)
+                    objects_cursor = oct_schema.model.Objects.search(j.id)
                     objects.extend([k for k in objects_cursor])
 
         return objects

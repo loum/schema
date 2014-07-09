@@ -14,7 +14,8 @@ The session is responsible for:
 
 * attaching model classes to the actual MongoDB datastore
 * maintaining the unit of work (Transactional support)
-* identity map
+* identity map to ensure that only one object for a given Document is
+  created at any one time.  This provides a level of data consistency
 * relations between objects
 
 An additional, handy feature that :mod:`ming` provides is a special

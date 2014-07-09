@@ -4,6 +4,7 @@ import ming.odm.declarative
 import json
 import re
 from datetime import datetime
+import inspect
 
 import oct_schema
 from oct.utils.log import log
@@ -40,11 +41,12 @@ class ModelBase(ming.odm.declarative.MappedClass):
     #_id = ming.odm.FieldProperty(ming.schema.ObjectId)
     _id = ming.odm.FieldProperty(str)
     created_ts = ming.odm.FieldProperty(datetime,
-                                        if_missing=datetime.utcnow())
+                                        if_missing=datetime.utcnow)
     modified_ts = ming.odm.FieldProperty(datetime)
 
     @property
     def flush(self):
+        log.debug(self.__mongometa__.session)
         self.__mongometa__.session.flush()
 
     @property
@@ -83,8 +85,8 @@ class ModelBase(ming.odm.declarative.MappedClass):
 
         log.debug('Fixture-based records loaded: %d' % record_count)
 
-
-    def search(self, token, regex=False, case_sensitive=True):
+    @classmethod
+    def search(cls, token, regex=False, case_sensitive=True):
         """Extract documents from the Collection context associated with
         the *token*.  If *regex* is ``True`` then the token is applied
         as a regular expression to the search (the default is that
@@ -105,7 +107,7 @@ class ModelBase(ming.odm.declarative.MappedClass):
 
         """
         log.info('Searching Collection: "%s" with token "%s"' %
-                 (str(self), str(token)))
+                 (str(cls), str(token)))
 
         kwargs = {}
         if regex:
@@ -114,8 +116,48 @@ class ModelBase(ming.odm.declarative.MappedClass):
         else:
             kwargs['_id'] = token
 
-        results = self.query.find(kwargs)
+        results = cls.query.find(kwargs)
 
         return results
+
+    def to_dict(self):
+        """Helper method to convert the Collection Document context
+        into a Python dictionary structure.
+
+        Makes every effort to exclude all but valid Collection attributes
+
+        .. note::
+
+            **TODO**: filtering is based on some hard-wired object
+            names.  It would be better if we could leverage the object
+            type (probably more important if Project gains traction)
+
+        **Returns:**
+            dictionary of the Collection Docuemnt's attributes.
+
+        """
+        new_dict = {}
+        for item in dir(self):
+            is_attr = True
+            # TODO: get rid of these hard-wired comparisons.
+            if (not item.startswith("__") and
+                item not in ['_registry', 'query', '_compiled']):
+
+                # Separating if constructs here to clarify actions.
+
+                # Check for object methods.
+                if inspect.ismethod(getattr(type(self), item)):
+                    is_attr = False
+                    continue
+
+                # Check for object properties.
+                if isinstance(getattr(type(self), item), property):
+                    is_attr = False
+                    continue
+
+                if is_attr:
+                    new_dict[item] = getattr(self, item)
+
+        return new_dict
 
 ming.odm.Mapper.compile_all()

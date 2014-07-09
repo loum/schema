@@ -44,21 +44,30 @@ class Objects(oct_schema.ModelBase):
         name = 'objects'
         unique_indexes = [('_id',),]
 
-    _e = dict(_id=ming.schema.String(if_missing=None),
-              type_id=ming.schema.String(if_missing=None),
-              latitude=ming.schema.Float(if_missing=None),
-              longitude=ming.schema.Float(if_missing=None),
-              name=ming.schema.String(if_missing=None),
-              facility_description=ming.schema.String(if_missing=None))
+    #__e = dict(_id=ming.schema.String(if_missing=None),
+    #           type_id=ming.schema.String(if_missing=None),
+    #           latitude=ming.schema.Float(if_missing=None),
+    #           longitude=ming.schema.Float(if_missing=None),
+    #           name=ming.schema.String(if_missing=None),
+    #           facility_description=ming.schema.String(if_missing=None))
 
-    category_code = FieldProperty(str, if_missing='')
-    name = FieldProperty(str, if_missing='')
+    # Attributes have been altered to suit the observation context.
+    #category_code = FieldProperty(str, if_missing='')
     type_id = FieldProperty(str, if_missing='')
-    country = FieldProperty(str, if_missing='')
-    osuffix = FieldProperty(str, if_missing='')
-    facility_description = FieldProperty(str, if_missing='')
-    record_status = FieldProperty(str, if_missing='')
-    entities = FieldPropertyWithMissingNone([dict(_e)])
-    facility_status = FieldProperty(str, if_missing='')
-    type = FieldProperty(str, if_missing='')
-    be_number = FieldProperty(str)
+    source_id = FieldProperty(str, if_missing='')
+    occurred_start = FieldProperty(str, if_missing='')
+    observation_by = FieldProperty(str, if_missing='')
+    observation_at = FieldProperty(str, if_missing='')
+    activity = FieldProperty(str, if_missing='')
+    description = FieldProperty(str, if_missing='')
+    latitude = FieldProperty(float, if_missing='')
+    longitude = FieldProperty(float, if_missing='')
+    #name = FieldProperty(str, if_missing='')
+    #country = FieldProperty(str, if_missing='')
+    #osuffix = FieldProperty(str, if_missing='')
+    #facility_description = FieldProperty(str, if_missing='')
+    #record_status = FieldProperty(str, if_missing='')
+    #entities = FieldPropertyWithMissingNone([__e])
+    #facility_status = FieldProperty(str, if_missing='')
+    #type = FieldProperty(str, if_missing='')
+    #be_number = FieldProperty(str)
