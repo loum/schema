@@ -10,6 +10,15 @@ import oct_schema
 from oct.utils.log import log
 
 
+class JSONDatetimeEncoder(json.JSONEncoder):
+
+    def default(self, obj):
+        if isinstance(obj, datetime):
+            return str(obj)
+
+        return json.JSONEncoder.default(self, obj)
+
+
 class ModelBase(ming.odm.declarative.MappedClass):
     """The :class:`oct.schema.ModelBase` class is the generic class that
     should be inherited by all OCT Collections that will interface to
@@ -133,7 +142,12 @@ class ModelBase(ming.odm.declarative.MappedClass):
             type (probably more important if Project gains traction)
 
         **Returns:**
-            dictionary of the Collection Docuemnt's attributes.
+            dictionary of the Collection Document's attributes.  For
+            example::
+
+                {'_id': 'xxxxxx',
+                 'text_field': token,
+                 'created_ts': datetime.datetime(2014, 7, 9, ... )}
 
         """
         new_dict = {}
@@ -159,5 +173,23 @@ class ModelBase(ming.odm.declarative.MappedClass):
                     new_dict[item] = getattr(self, item)
 
         return new_dict
+
+    def to_json(self):
+        """Wrapper around the :meth:`oct_schema.ModelBase.to_dict`
+        method that converts a Collection Document context into JSON.
+
+        **Returns:**
+            JSON string of the Collection Document's attributes.  For
+            example::
+
+                '{"created_ts": "%s", "_id": "aaaaaa", "modified_ts": ... }'
+
+        """
+        tmp_dict = self.to_dict()
+
+        import json
+        encoded_json = json.dumps(tmp_dict, cls=JSONDatetimeEncoder)
+
+        return encoded_json
 
 ming.odm.Mapper.compile_all()

@@ -60,7 +60,7 @@ class TestInheritedModel(unittest2.TestCase):
         set_log_level('DEBUG')
 
     def test_to_dict(self):
-        """Convert a ming.Document object to JSON.
+        """Convert a ming.Document object to a Python dictionary structure.
         """
         token = 'dictionary conversion'
         dt = self._bson_utc_now()
@@ -82,6 +82,34 @@ class TestInheritedModel(unittest2.TestCase):
 
         # Clean up.
         results = DodgeCollection.query.find({'_id': 'xxxxxx'})
+        set_log_level('INFO')
+        for document in results:
+            document.delete()
+            document.flush
+        set_log_level('DEBUG')
+
+    def test_to_json(self):
+        """Convert a ming.Document object to JSON.
+        """
+        token = 'JSON conversion'
+        dt = self._bson_utc_now()
+        kwargs = {'_id': 'aaaaaa',
+                  'text_field': token,
+                  'created_ts': dt}
+        dc = DodgeCollection(**kwargs)
+        dc.flush
+
+        results = DodgeCollection.query.find({'_id': 'aaaaaa'})
+        set_log_level('INFO')
+        for document in results:
+            received = document.to_json()
+            expected = '{"created_ts": "%s", "_id": "aaaaaa", "modified_ts": null, "text_field": "JSON conversion"}' % str(dt)
+            msg = 'DodgeCollection object to_json translation error'
+            self.assertEqual(received, expected, msg)
+        set_log_level('DEBUG')
+
+        # Clean up.
+        results = DodgeCollection.query.find({'_id': 'aaaaaa'})
         set_log_level('INFO')
         for document in results:
             document.delete()
