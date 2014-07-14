@@ -18,15 +18,15 @@ class TestRelations(unittest2.TestCase):
                                     'fixtures')
 
         f = os.path.join(fixtures_dir, 'relations.json')
-        oct_schema.model.Relations()._batch_loader(f)
+        oct_schema.model.Relations._batch_loader(f)
 
         f = os.path.join(fixtures_dir, 'objects.json')
-        oct_schema.model.Objects()._batch_loader(f)
+        oct_schema.model.Objects._batch_loader(f)
 
     def test_init(self):
         """Initialise a :class:`oct.model.Relations` object.
         """
-        msg = 'Object is not an Relations'
+        msg = 'Object is not an Relations instance'
         o = oct_schema.model.Relations()
         self.assertIsInstance(o, oct_schema.model.Relations, msg)
         o.rollback
@@ -60,6 +60,12 @@ class TestRelations(unittest2.TestCase):
             i.delete()
             i.flush
         set_log_level('DEBUG')
+
+        # Restore original fixture count.
+        received = oct_schema.model.Relations.query.find().count()
+        expected = 12
+        msg = 'Objects collection returned incorrect count after clean'
+        self.assertEqual(received, expected, msg)
 
     def test_batch_loader(self):
         """Test the batch loader: Kirov CGN wildcard search against _id key.

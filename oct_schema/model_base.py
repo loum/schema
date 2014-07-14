@@ -62,7 +62,8 @@ class ModelBase(ming.odm.declarative.MappedClass):
     def rollback(self):
         self.__mongometa__.session.clear()
 
-    def _batch_loader(self, file):
+    @classmethod
+    def _batch_loader(cls, file):
         """Helper method that takes a filename and attempts to parse
         its contents as a JSON object and load into the Collection
         context.
@@ -83,7 +84,7 @@ class ModelBase(ming.odm.declarative.MappedClass):
         """
         log.debug('Loading fixture file: "%s" ...' % file)
 
-        m = ming.odm.mapper(self)
+        m = ming.odm.mapper(cls)
         with open(file) as f:
             record_count = 0
             data = json.load(f)

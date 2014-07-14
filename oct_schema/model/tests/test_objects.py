@@ -9,21 +9,31 @@ from oct.utils.log import set_log_level
 
 class TestObjects(unittest2.TestCase):
 
+    @classmethod
+    def setUpClass(cls):
+        cls.maxDiff = None
+        fixtures_dir = os.path.join('oct_schema',
+                                    'model',
+                                    'tests',
+                                    'fixtures')
+
+        f = os.path.join(fixtures_dir, 'objects.json')
+        oct_schema.model.Objects._batch_loader(f)
+
     def test_init(self):
         """Initialise a :class:`oct.model.Objects` object.
         """
-        msg = 'Object is not an Objects'
+        msg = 'Object is not an Objects instance'
         o = oct_schema.model.Objects()
         self.assertIsInstance(o, oct_schema.model.Objects, msg)
         o.rollback
 
-    def test_mim(self):
+    def test_insert_and_delete(self):
         """Test the MongoDB-in-Memory Ming component.
         """
-        kwargs = {'category_code': 'Objects category_code',
-                  'location': {'type': 'Point',
-                               'coordinates': {'latitude': 33.4217,
-                                               'longitude': 69.0789}}}
+        kwargs = {'_id': 'facility|severomorsk naval base (test)',
+                  'latitude': 33.4217,
+                  'longitude': 69.0789}
         o = oct_schema.model.Objects(**kwargs)
         o.flush
 
@@ -34,17 +44,24 @@ class TestObjects(unittest2.TestCase):
         msg = 'Objects collection search returned incorrect count'
         self.assertEqual(received, expected, msg)
 
+        # Clean up.
+        kwargs = {'_id': 'facility|severomorsk naval base (test)'}
+        results = oct_schema.model.Objects.query.find(kwargs)
+        set_log_level('INFO')
+        for i in results:
+            i.delete()
+            i.flush
+        set_log_level('DEBUG')
+
+        # Restore original fixture count.
+        received = oct_schema.model.Objects.query.find().count()
+        expected = 19
+        msg = 'Objects collection returned incorrect count after clean'
+        self.assertEqual(received, expected, msg)
+
     def test_batch_loader(self):
         """Test the batch loader: Kirov wildcard search against _id key.
         """
-        fixtures_dir = os.path.join('oct_schema',
-                                    'model',
-                                    'tests',
-                                    'fixtures')
-
-        f = os.path.join(fixtures_dir, 'objects.json')
-        oct_schema.model.Objects()._batch_loader(f)
-
         regx = re.compile('.*kirov.*', re.IGNORECASE)
         kwargs = {'_id': regx}
         results = oct_schema.model.Objects.query.find(kwargs)

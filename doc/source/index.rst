@@ -20,6 +20,7 @@ in the technology stack:
 
 .. figure:: _static/restful_flow.png
    :alt: OCT RESTful flow
+   :scale: 70%
 
    *OCT RESTful Technology Stack*
 
